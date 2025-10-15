@@ -1,0 +1,237 @@
+a,
+button,
+input,
+textarea,
+svg * {
+    transition-duration: var(--transition-duration);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: clamp(20px, calc(40px / var(--layout-width) * 100vw), 40px);
+}
+
+h2 {
+    font-size: clamp(20px, calc(36px / var(--layout-width) * 100vw), 36px);
+}
+
+body {
+    font-family: var(--font-family-base), sans-serif;
+    font-weight: 300;
+    font-size: clamp(14px, calc(20px / var(--layout-width) * 100vw), 20px);
+    line-height: 1.25;
+    color: var(--color-gray-3);
+    background-color: var(--color-ggg);
+
+    .lock & {
+        overflow: hidden;
+        touch-action: none;
+        overscroll-behavior: none;
+    }
+}
+
+/* BUTTON */
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--button-height);
+    padding-inline: 52px;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--color-light-red);
+    box-shadow: var(--shadow);
+
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-ggg);
+
+    &:hover {
+        background-color: var(--color-gray-3);
+    }
+
+    &.button--white {
+        background-color: var(--color-ggg);
+        color: var(--color-red);
+
+        &:hover {
+            background-color: var(--color-dark);
+        }
+    }
+}
+
+/* MENU */
+.menu {}
+
+.menu__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 50px;
+}
+
+.menu__item {
+    font-size: 12px;
+}
+
+.menu__link {
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-ggg);
+
+    &:hover {
+        color: var(--color-light-red);
+    }
+}
+
+
+/* FORM */
+.form {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.form__input {
+    flex-grow: 1;
+    min-height: var(--input-height);
+    padding: 0 0 10px;
+    background-color: transparent;
+    color: var(--color-ggg);
+    border: none;
+    border-bottom: var(--border);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+
+    &::placeholder {
+        color: var(--color-ggg);
+    }
+}
+
+.form__submit-button {
+}
+
+/* SOCIALS */
+.soc1als {
+}
+
+.soc1als__list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+}
+
+.soc1als__item {
+}
+
+.soc1als__link {
+    width: 48px;
+    aspect-ratio: 1;
+    background-color: var(--color-ggg);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-red);
+
+    &:hover {
+        background-color: var(--color-dark);
+    }
+}
+
+/* QUOTATION-TITLE */
+.quotation-title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.12;
+    color: var(--color-ggg);
+    margin-top: 70px;
+    position: relative;
+
+    &::before {
+        content: "#" attr(data-tag);
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: calc(100% + 14px);
+        left: 0;
+    }
+
+    & q {
+        quotes: none;
+    }
+}
+
+/* IMAGE-SECTION */
+.image-section {
+    min-height: clamp(276px, calc(536px / var(--layout-width) * 100vw), 536px);
+    padding-inline: 15px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        mix-blend-mode: hard-light;
+        z-index: 0;
+    }
+
+    & > * {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.image-section__content {}
+
+/* MAX-WIDTH:1023 ------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+    /* FORM */
+    .form {
+        flex-direction: column;
+        align-items: normal;
+        row-gap: 24px;
+    }
+}
+
+/* MAX-WIDTH:767 ------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+    /* SOCIALS */
+    .soc1als__list {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    /* QUOTATION-TITLE */
+    .quotation-title {
+        font-size: 20px;
+
+        &::before {
+            bottom: calc(100% + 10px);
+        }
+    }
+}
